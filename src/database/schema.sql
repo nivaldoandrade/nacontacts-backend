@@ -8,9 +8,9 @@ CREATE TABLE IF NOT EXISTS categories (
 );
 
 CREATE TABLE IF NOT EXISTS contacts (
-	id UUID NOT NULL DEFAULT uuid_generate_v4(),
+	id UUID NOT NULL UNIQUE DEFAULT uuid_generate_v4(),
 	name VARCHAR NOT NULL,
-	email VARCHAR NOT NULL UNIQUE,
+	email VARCHAR UNIQUE,
 	phone VARCHAR,
 	category_id UUID,
 	FOREIGN KEY(category_id) REFERENCES categories(id)
